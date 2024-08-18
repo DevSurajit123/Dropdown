@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Cover Effect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Web Dev Creative</a></div>
+            <ul class="links">
+                <li><a href="hero">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+            <a href="#" class="action_btn">Get Started</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <ul class="dropdown_menu">
+            <li><a href="hero">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="services">Services</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="login" class="action_btn">Get Started</a></li>
+        </ul>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="card">
+            <img src="Weather1.jpeg" class="img" alt="Weather">
+            <div class="card-body">
+                <h1 class="card-title">Weather</h1>
+                <p class="card-subtitle">A primitive weather app</p>
+                <p class="card-info">Capable of giving the weather forecast. Includes wind speed, humidity,
+                    precipitation, UV index.</p>
+                <a href="weather"><button class="card-btn">Check weather</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Thermo1.jpeg" class="img" alt="Temperature">
+            <div class="card-body">
+                <h1 class="card-title">Temperature</h1>
+                <p class="card-subtitle">A simple temperature app</p>
+                <p class="card-info">Convert a given temperature to another unit.</p>
+                <a href="tempConv"><button class="card-btn">Change temperature</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Clk2.jpeg" class="img" alt="Clock">
+            <div class="card-body">
+                <h1 class="card-title">Clock</h1>
+                <p class="card-subtitle">Clock app</p>
+                <p class="card-info">Provides information on current time using an analog clock.</p>
+                <a href="clock"><button class="card-btn">Use Clock</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Calc1.jpeg" class="img" alt="Calculator">
+            <div class="card-body">
+                <h1 class="card-title">Calculator</h1>
+                <p class="card-subtitle">Calculator App</p>
+                <p class="card-info">Calculator App for doing Complex Calculations.</p>
+                <a href="calculator"><button class="card-btn">Use Calculator</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+        const overlay = document.querySelector('.overlay');
+
+        toggleBtn.onclick = function() {
+            dropDownMenu.classList.toggle('open');
+            overlay.classList.toggle('visible');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars';
+        }
+
+        overlay.onclick = function() {
+            dropDownMenu.classList.remove('open');
+            overlay.classList.remove('visible');
+            toggleBtnIcon.classList = 'fa-solid fa-bars';
+        }
+    </script>
+</body>
+
+</html>

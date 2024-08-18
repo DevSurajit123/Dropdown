@@ -1,0 +1,235 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    background: #36768c;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container {
+    padding-top: 40px;
+    height: 80vh;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribute space between cards */
+    margin-top: 60px; /* Space for the header */
+  }
+  
+  .card {
+    width: 23%; /* Ensure four cards fit in one row */
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid #fff;
+    position: relative;
+  }
+  
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .card-body {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    background: #1f3d4722;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: right 2s;
+  }
+  
+  .card:hover .card-body {
+    right: 0;
+  }
+  
+  .card-title {
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  
+  .card-subtitle {
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  .card-info {
+    font-size: 16px;
+    line-height: 25px;
+    margin: 40px 0;
+    font-weight: 400;
+  }
+  
+  .card-btn {
+    color: #1f3d47;
+    background: #8fabba;
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  a:hover {
+    color: orange;
+  }
+  
+  header {
+    position: relative;
+    padding: 0 2rem;
+  }
+  
+  .navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+  }
+  
+  .navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar .links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navbar .toggle_btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .action_btn {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .action_btn:hover {
+    transform: scale(1.05);
+    color: #fff;
+  }
+  
+  .action_btn:active {
+    transform: scale(0.95);
+  }
+  
+  @media (max-width: 992px) {
+    .navbar .links,
+    .navbar .action_btn {
+      display: none;
+    }
+    .navbar .toggle_btn {
+      display: block;
+    }
+  }
+  
+  .dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Box shadow for better visibility */
+    z-index: 101; /* Ensure it sits above the overlay */
+  }
+  
+  .dropdown_menu.open {
+    display: block;
+    max-height: 240px;
+  }
+  
+  .dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+    
+  @media (max-width: 576px) {
+    .dropdown_menu {
+      left: 2rem;
+      width: auto;
+    }
+  }
+  
+  /* Overlay styles */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    backdrop-filter: blur(5px); /* Blur effect for the background */
+    z-index: 100; /* Ensure it sits below the dropdown menu */
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .overlay.visible {
+    display: block;
+    opacity: 1;
+  }
+  
